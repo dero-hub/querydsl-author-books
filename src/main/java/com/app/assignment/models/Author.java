@@ -20,6 +20,9 @@ public class Author {
     @NotBlank
     private String name;
 
+    private String email;
+
+
     @OneToMany(mappedBy = "author")
     private Set<Books> books = new HashSet<>();
 
