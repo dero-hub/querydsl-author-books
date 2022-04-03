@@ -15,10 +15,10 @@ public class Books {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+//    @NotBlank
     private String title;
 
-    @NotBlank
+//    @NotBlank
     private Boolean published;
 
     @ManyToOne(fetch = FetchType.LAZY)
