@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,13 +24,17 @@ public class Author {
     private String email;
 
 
-    @OneToMany(mappedBy = "author")
-    private Set<Books> books = new HashSet<>();
+    @OneToMany(targetEntity = Books.class,
+    cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY)
 
-    public void addBook(Books book){
-        books.add(book);
-        book.setAuthor(this);
-    }
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    private List<Books> books;
+
+//    public void addBook(Books book){
+//        books.add(book);
+//        book.setAuthor(this);
+//    }
     public  Author(){}
 
     public Author(String name){

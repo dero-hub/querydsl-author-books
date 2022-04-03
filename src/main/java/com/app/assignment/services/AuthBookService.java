@@ -19,7 +19,7 @@ public class AuthBookService {
     private BooksRepository booksRepository;
 
     public Author saveAuthorAndBooks(Author author){
-        this.booksRepository.saveAll(author.getBooks());
+        author.getBooks().forEach((b -> this.booksRepository.save(b)));
         return authorRepository.save(author);
     }
 

@@ -31,7 +31,7 @@ public class AuthorRepositoryImpl extends  BaseRepositoryImpl<Author, Long> impl
                 .distinct()
                 .from(author)
                 .innerJoin(author.books, books)
-                .fetchJoin().fetchAll().fetch();
+                .fetchJoin().fetch();
     }
 
     @Override
