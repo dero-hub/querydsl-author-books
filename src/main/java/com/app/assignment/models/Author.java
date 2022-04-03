@@ -31,11 +31,7 @@ public class Author {
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private List<Books> books;
 
-//    public void addBook(Books book){
-//        books.add(book);
-//        book.setAuthor(this);
-//    }
-    public  Author(){}
+  Author(){}
 
     public Author(String name){
         this.name = name;
