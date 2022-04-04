@@ -12,6 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class AuthorAndBooks {
+
     @Autowired
     private AuthBookService authBookService;
 
@@ -30,13 +31,18 @@ public class AuthorAndBooks {
         return authBookService.findAuthorByEmail(email);
     }
 
+//    @PutMapping("/author/{id}/book")
+//    public Author addNewBook(@PathVariable Long id, @RequestBody Books book){
+//        return authBookService.addNewBook(id, book);
+//    }
+
     @GetMapping("/books")
     public List<Books> findAllBooks(){
         return authBookService.findAllBooks();
     }
 
-    @GetMapping("/author/active_books")
-    public List<Author> findAllActiveBooks(){
-        return authBookService.findActiveBooks();
+    @GetMapping("/author/published_books")
+    public List<Author> findAuthorWithPublishedBooks(){
+        return authBookService.findAuthorWithPublishedBooks();
     }
 }

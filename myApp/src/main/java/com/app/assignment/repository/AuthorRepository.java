@@ -15,5 +15,6 @@ public interface AuthorRepository extends BaseRepository<Author, Long>{
 
     public List<Author> getAllBooksOfAuthor();
 
-    public List<Author> findActiveBooks();
+    public List<Author> findAuthorWithPublishedBooks();
+
 }

@@ -43,7 +43,14 @@ public class AuthBookService {
         return  authorRepository.getAllBooksOfAuthor();
     }
 
-    public List<Author> findActiveBooks(){
-        return this.authorRepository.findActiveBooks();
+    public List<Author> findAuthorWithPublishedBooks(){
+        return this.authorRepository.findAuthorWithPublishedBooks();
     }
+
+    public Optional<Author> findAuthorById(Long id){
+        Optional<Author> author = this.authorRepository.findById(id);
+        return author;
+    }
+
+
 }

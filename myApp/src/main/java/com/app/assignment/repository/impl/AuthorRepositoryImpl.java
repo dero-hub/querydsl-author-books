@@ -35,7 +35,7 @@ public class AuthorRepositoryImpl extends  BaseRepositoryImpl<Author, Long> impl
     }
 
     @Override
-    public List<Author> findActiveBooks() {
+    public List<Author> findAuthorWithPublishedBooks() {
         return jpaQuery.select(author)
                 .distinct()
                 .from(author)
@@ -43,6 +43,7 @@ public class AuthorRepositoryImpl extends  BaseRepositoryImpl<Author, Long> impl
                 .where(books.published.eq(true))
                 .fetchJoin().fetch();
     }
+
 
     @Override
     public List<Author> getAllBooksOfAuthor() {
